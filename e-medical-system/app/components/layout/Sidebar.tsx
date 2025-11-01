@@ -34,6 +34,7 @@ export default function Sidebar({ role }: Props) {
     ],
     doctor: [
       { name: "Dashboard", path: "/doctor/dashboard", icon: LayoutDashboard },
+      { name: "AI Screening", path: "/doctor/ai-screen", icon: Activity },
       { name: "Patient Cases", path: "/doctor/patients", icon: Users },
       { name: "Teleconsultations", path: "/doctor/teleconsult", icon: Activity },
       { name: "Prescriptions", path: "/doctor/prescriptions", icon: FileText },
@@ -60,10 +61,12 @@ export default function Sidebar({ role }: Props) {
     <aside className="fixed left-0 top-0 h-screen w-64 bg-white shadow-lg p-5 flex flex-col justify-between z-50">
       {/* Brand */}
       <div>
-        <h2 className="text-2xl font-bold text-blue-700 mb-8 text-center">
+        <Link
+          href="/"
+          className="block text-2xl font-bold text-blue-700 mb-8 text-center hover:text-blue-900 transition"
+        >
           EyeCare<span className="text-gray-800">AI</span>
-        </h2>
-
+        </Link>
         {/* Menu Links */}
         <ul className="space-y-1 overflow-y-auto max-h-[80vh] pr-2">
           {menus[role].map((item, idx) => {
@@ -90,12 +93,15 @@ export default function Sidebar({ role }: Props) {
 
       {/* Footer / Logout */}
       <div className="border-t pt-4 text-center">
-        <Link
-          href="/auth/login"
-          className="text-sm text-gray-500 hover:text-blue-600 transition"
-        >
-          Logout
-        </Link>
+     <button
+      onClick={() => {
+      localStorage.removeItem("user");
+      window.location.href = "/";
+    }}
+    className="text-sm text-gray-500 hover:text-blue-600 transition"
+  >
+    Logout
+  </button>
       </div>
     </aside>
   );
