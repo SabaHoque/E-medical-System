@@ -65,7 +65,7 @@ export default function LandingPage() {
                       href="/auth/login"
                       className="block px-4 py-2 hover:bg-blue-50"
                     >
-                      Home-Doctor Service
+                      Doctor Service
                     </Link>
                   </li>
                   <li>

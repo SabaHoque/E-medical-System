@@ -3,7 +3,7 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
-import { Phone, MapPin, Hospital, Ambulance } from "lucide-react";
+//import { Phone, MapPin, Hospital, Ambulance } from "lucide-react";
 
 // Custom icons
 const hospitalIcon = new L.Icon({
@@ -13,140 +13,231 @@ const hospitalIcon = new L.Icon({
   popupAnchor: [0, -28],
 });
 
-const ambulanceIcon = new L.Icon({
-  iconUrl: "https://cdn-icons-png.flaticon.com/512/2966/2966327.png",
-  iconSize: [32, 32],
-  iconAnchor: [16, 32],
-  popupAnchor: [0, -28],
-});
+// const ambulanceIcon = new L.Icon({
+ // iconUrl: "https://cdn-icons-png.flaticon.com/512/2966/2966327.png",
+ // iconSize: [32, 32],
+  //iconAnchor: [16, 32],
+//  popupAnchor: [0, -28],
+//});
 
 export default function EmergencyPage() {
   const services = [
     {
       id: 1,
       name: "Square Hospital",
+      address: "18 Bir Uttam Qazi Nuruzzaman Sarak, West Panthapath",
+      phone: "09610010616",
       type: "hospital",
-      phone: "+880-2-8144466",
-      address: "18/F, Bir Uttam Qazi Nuruzzaman Sarak, Dhaka",
-      lat: 23.7520,
-      lng: 90.3925,
+      lat: 23.751654,
+      lng: 90.386987,
     },
     {
       id: 2,
-      name: "Dhaka Medical College Hospital",
+      name: "Better Life Hospital",
+      address: "1, Shahid Faruk Iqbal Road, Dhaka 1219",
+      phone: "09678786787",
       type: "hospital",
-      phone: "+880-2-55165088",
-      address: "Secretariat Road, Dhaka",
-      lat: 23.7261,
-      lng: 90.3932,
+      lat: 23.736905,
+      lng: 90.414727,
     },
     {
       id: 3,
-      name: "United Hospital Limited",
+      name: "Bangladesh Specialized Hospital",
+      address: "21 Mirpur Road, Dhaka 1207",
+      phone: "09666700100",
       type: "hospital",
-      phone: "+880-2-8836000",
-      address: "Plot 15, Road 71, Gulshan, Dhaka",
-      lat: 23.7935,
-      lng: 90.4145,
+      lat: 23.778172,
+      lng: 90.374110,
     },
     {
       id: 4,
-      name: "Fire Service Ambulance",
-      type: "ambulance",
-      phone: "199",
-      address: "Dhaka Fire Service Headquarters",
-      lat: 23.7265,
-      lng: 90.4107,
+      name: "IBN Sina Specialized Hospital",
+      address: "House 68, Road 15, Dhanmondi",
+      phone: "10615",
+      type: "hospital",
+      lat: 23.742721,
+      lng: 90.373902,
     },
     {
       id: 5,
-      name: "Red Crescent Ambulance Service",
-      type: "ambulance",
-      phone: "+880-2-9351577",
-      address: "684-686 Bara Moghbazar, Dhaka",
-      lat: 23.7412,
-      lng: 90.4098,
+      name: "Dhaka Medical College Hospital",
+      address: "Secretariat Road, Dhaka 1000",
+      phone: "02-55165130",
+      type: "hospital",
+      lat: 23.725225,
+      lng: 90.392858,
+    },
+    {
+      id: 6,
+      name: "Green Life Hospital",
+      address: "32 Green Road, Dhaka 1205",
+      phone: "+88029612345",
+      type: "hospital",
+      lat: 23.748520,
+      lng: 90.386820,
+    },
+    {
+      id: 7,
+      name: "National Gastroliver Institute & Hospital",
+      address: "Inside NIDCH, Mohakhali",
+      phone: "+8801618800088",
+      type: "hospital",
+      lat: 23.778612,
+      lng: 90.400249,
+    },
+    {
+      id: 8,
+      name: "National Institute of Burn & Plastic Surgery",
+      address: "PCF2+JJ7, Agargaon",
+      phone: "01819220180",
+      type: "hospital",
+      lat: 23.777600,
+      lng: 90.374200,
+    },
+    {
+      id: 9,
+      name: "BIRDEM General Hospital",
+      address: "122 Kazi Nazrul Islam Ave",
+      phone: "02-41060479",
+      type: "hospital",
+      lat: 23.739865,
+      lng: 90.396662,
+    },
+    {
+      id: 10,
+      name: "Sir Salimullah Medical College Mitford Hospital",
+      address: "Mitford Road, Dhaka",
+      phone: "+8801322465805",
+      type: "hospital",
+      lat: 23.708197,
+      lng: 90.399291,
+    },
+    {
+      id: 11,
+      name: "Islami Bank Specialized General Hospital",
+      address: "71/72 VIP Road, Nayapaltan",
+      phone: "09601560101",
+      type: "hospital",
+      lat: 23.732411,
+      lng: 90.415509,
+    },
+    {
+      id: 12,
+      name: "Bangladesh Eye Hospital Shantinagar Ltd.",
+      address: "24/1 Chamelibagh, Shantinagar",
+      phone: "09613966966",
+      type: "hospital",
+      lat: 23.739126,
+      lng: 90.419272,
+    },
+    {
+      id: 13,
+      name: "Mohakhali Cancer and General Hospital",
+      address: "73 Ba/A Wireless Gate, Mohakhali",
+      phone: "029880078",
+      type: "hospital",
+      lat: 23.780650,
+      lng: 90.402952,
+    },
+    {
+      id: 14,
+      name: "ICDDR,B",
+      address: "68 Shaheed Tajuddin Ahmed Sarani, Mohakhali",
+      phone: "+8802222277001",
+      type: "hospital",
+      lat: 23.780283,
+      lng: 90.400293,
+    },
+    {
+      id: 15,
+      name: "Labaid Specialized Hospital",
+      address: "House 06, Road 04, Dhanmondi",
+      phone: "+880241060908",
+      type: "hospital",
+      lat: 23.746032,
+      lng: 90.374799,
+    },
+    {
+      id: 16,
+      name: "Gulshan Specialized Eye Hospital",
+      address: "SWB-1, Road 7, Gulshan-1",
+      phone: "09678121288",
+      type: "hospital",
+      lat: 23.780447,
+      lng: 90.416894,
+    },
+    {
+      id: 17,
+      name: "Evercare Hospital Dhaka",
+      address: "Plot 81, Bashundhara R/A",
+      phone: "10678",
+      type: "hospital",
+      lat: 23.815285,
+      lng: 90.431654,
+    },
+    {
+      id: 18,
+      name: "AMZ Hospital",
+      address: "Cha-80/3 Pragati Sarani, North Badda",
+      phone: "01847331010",
+      type: "hospital",
+      lat: 23.792903,
+      lng: 90.425672,
+    },
+    {
+      id: 19,
+      name: "Ispahani Islamia Eye Institute & Hospital",
+      address: "Sher-E-Bangla Nagar, Farmgate",
+      phone: "+880222243244",
+      type: "hospital",
+      lat: 23.757410,
+      lng: 90.386553,
+    },
+    {
+      id: 20,
+      name: "United Hospital Limited",
+      address: "Plot 15, Road 71, Gulshan-2",
+      phone: "01914001234",
+      type: "hospital",
+      lat: 23.790207,
+      lng: 90.414825,
     },
   ];
 
   return (
     <div className="p-6 bg-gray-50 min-h-screen">
       <h1 className="text-3xl font-bold text-blue-700 mb-6">
-        🚨 Emergency & Map Services (Dhaka)
+        🚨 Emergency & Hospital Map (Dhaka)
       </h1>
 
-      {/* OpenStreetMap */}
-      <div className="w-full h-[70vh] rounded-lg overflow-hidden shadow mb-8">
+      <div className="w-full h-[75vh] rounded-lg overflow-hidden shadow mb-8">
         <MapContainer
-          center={[23.78, 90.40]} // Center on Dhaka
+          center={[23.75, 90.39]}
           zoom={12}
           scrollWheelZoom={true}
           style={{ height: "100%", width: "100%" }}
         >
           <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+            attribution='&copy; OpenStreetMap contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
+
           {services.map((s) => (
             <Marker
               key={s.id}
               position={[s.lat, s.lng]}
-              icon={s.type === "hospital" ? hospitalIcon : ambulanceIcon}
+              icon={hospitalIcon}
             >
               <Popup>
-                <div>
-                  <h3 className="font-semibold text-blue-700">{s.name}</h3>
-                  <p className="text-sm text-gray-600">{s.address}</p>
-                  <p className="text-sm font-medium">
-                    ☎️ <a href={`tel:${s.phone}`}>{s.phone}</a>
-                  </p>
-                </div>
+                <h3 className="font-bold text-blue-700">{s.name}</h3>
+                <p>{s.address}</p>
+                <p>
+                  📞 <a href={`tel:${s.phone}`}>{s.phone}</a>
+                </p>
               </Popup>
             </Marker>
           ))}
         </MapContainer>
-      </div>
-
-      {/* Emergency Numbers Section */}
-      <div className="bg-white rounded-lg shadow p-6 mb-8">
-        <h2 className="text-xl font-semibold text-gray-800 mb-4 flex items-center gap-2">
-          <Phone className="text-blue-600" /> Emergency Contact Numbers
-        </h2>
-        <ul className="space-y-2 text-gray-700">
-          <li>🚓 Police: <strong>999</strong></li>
-          <li>🚑 Ambulance: <strong>199</strong></li>
-          <li>🔥 Fire Service: <strong>9555555</strong></li>
-          <li>📞 Red Crescent Ambulance: <strong>+880-2-9351577</strong></li>
-        </ul>
-      </div>
-
-      {/* List of Services */}
-      <div className="grid md:grid-cols-2 gap-6">
-        {services.map((s) => (
-          <div
-            key={s.id}
-            className="bg-white p-5 rounded-lg shadow hover:shadow-md transition"
-          >
-            <div className="flex items-center gap-3 mb-2">
-              {s.type === "hospital" ? (
-                <Hospital className="text-green-600" />
-              ) : (
-                <Ambulance className="text-red-600" />
-              )}
-              <h3 className="text-lg font-semibold text-gray-800">{s.name}</h3>
-            </div>
-            <p className="text-gray-600 text-sm mb-1">
-              <MapPin className="inline-block w-4 h-4 mr-1 text-gray-500" />
-              {s.address}
-            </p>
-            <p className="text-gray-700">
-              <Phone className="inline-block w-4 h-4 mr-1 text-blue-600" />
-              <a href={`tel:${s.phone}`} className="hover:underline">
-                {s.phone}
-              </a>
-            </p>
-          </div>
-        ))}
       </div>
     </div>
   );
