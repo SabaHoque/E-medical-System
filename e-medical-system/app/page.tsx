@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import VoiceAssistant from "./components/VoiceAssistant";
 
 export default function LandingPage() {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -335,6 +336,7 @@ export default function LandingPage() {
           </Link>
         </div>
       </footer>
+      <VoiceAssistant />
     </main>
   );
 }

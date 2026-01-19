@@ -3,6 +3,7 @@
 import Sidebar from "../components/layout/Sidebar";
 import DashboardHeader from "../components/layout/Header";
 
+
 export default function PatientLayout({
   children,
 }: {
